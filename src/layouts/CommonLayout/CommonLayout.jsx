@@ -9,7 +9,7 @@ import styles from './CommonLayout.module.css';
 
 import AudioToggle from '@/components/AudioToggle';
 import DebugScreen from '@/components/DebugScreen';
-
+import HoverTest from 'components/HoverTest';
 import { useCursorStyle } from '@/hooks/useCursorStyle';
 
 const CommonLayout = ({
@@ -43,8 +43,9 @@ const CommonLayout = ({
         data-scroll-section
         className={`${styles.footer} w-full select-none tracking-tight font-light font-pp h-[50px] dark:text-white text-black flex align-center items-center justify-center uppercase`}
       >
-        <p>Ready to escape the waking world?</p>
+        <p> Ready to escape the waking world?</p>
       </footer>
+
       <div
         className="pointer-events-none fixed bottom-[15px] left-[15px]"
         onMouseEnter={addCursorBorder}

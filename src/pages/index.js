@@ -5,7 +5,7 @@ import { useAnimation } from 'framer-motion';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 
 import ArrowScroll from '@/components/ArrowScroll';
-
+import HoverTest from 'components/HoverTest';
 const MainScene = dynamic(() => import('@/components/MainScene'), {
   ssr: false,
 });
@@ -28,6 +28,7 @@ export default function Home() {
         <MainScene />
       </div>
       <ArrowScroll />
+      <HoverTest />
     </CommonLayout>
   );
 }

@@ -2,9 +2,9 @@
  * @file WaveText.js
  * @see https://greensock.com/splittext/
  */
-import React, { useEffect } from 'react'
-import PropTypes from 'prop-types'
-import { easeBackOut } from 'd3-ease'
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { easeBackOut } from 'd3-ease';
 import {
   gsap,
   CSSPlugin,
@@ -13,25 +13,25 @@ import {
   MotionPathPlugin,
   Draggable,
   TextPlugin,
-} from 'gsap'
+} from 'gsap';
 
-import { ScrollTrigger } from '@/gsap-bonus/ScrollTrigger'
-import { SplitText } from '@/gsap-bonus/SplitText'
+import { ScrollTrigger } from '@/gsap-bonus/ScrollTrigger';
+import { SplitText } from '@/gsap-bonus/SplitText';
 
-import styles from './WaveText.module.css'
+import styles from './WaveText.module.css';
 
-const WaveText = (props) => {
-  const { tagName: Tag, className, variant, children } = props
+const WaveText = props => {
+  const { tagName: Tag, className, variant, children } = props;
 
   useEffect(() => {
     // don't forget to register plugins
     gsap.registerPlugin(
       ScrollTrigger,
-      SplitText
+      SplitText,
       // TextPlugin,
       // Draggable,
       // MotionPathPlugin
-    )
+    );
     const tl = gsap.timeline({
       // scrollTrigger: {
       //   trigger: '.trigger',
@@ -40,14 +40,14 @@ const WaveText = (props) => {
       //   scrub: true,
       //   markers: true,
       // },
-    })
+    });
     const split = new SplitText('#main-text-0', {
       type: 'words, chars',
-    })
+    });
     //an array of all the divs that wrap each character
-    const chars = split.chars
+    const chars = split.chars;
 
-    gsap.set('#main-text-0', { perspective: 400 })
+    gsap.set('#main-text-0', { perspective: 400 });
     const alts = [
       {
         duration: 0.8,
@@ -69,9 +69,9 @@ const WaveText = (props) => {
         ease: easeBackOut,
         stagger: 0.01,
       },
-    ]
-    tl.from(chars, alts[1], '+=1')
-  }, [])
+    ];
+    tl.from(chars, alts[1], '+=1');
+  }, []);
 
   return (
     <Tag
@@ -105,21 +105,21 @@ const WaveText = (props) => {
         } */
       `}</style>
     </Tag>
-  )
-}
+  );
+};
 
 WaveText.propTypes = {
   tagName: PropTypes.string,
   className: PropTypes.string,
   variant: PropTypes.oneOf(['default']),
   children: PropTypes.node,
-}
+};
 
 WaveText.defaultProps = {
   tagName: 'div',
   className: '',
   variant: 'default',
   children: '',
-}
+};
 
-export default WaveText
+export default WaveText;
