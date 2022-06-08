@@ -5,7 +5,22 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './HoverTest.module.css';
+let image = document.querySelector('.img-inner img');
+let text = document.querySelector('.hover-text');
+// let image2 = document.querySelector(".img-inner2 img");
+// let text2 = document.querySelector(".hover-text2");
 
+document.addEventListener('mousemove', function (e) {
+  let x = e.clientX;
+  let y = e.clientY;
+
+  let size = getComputedStyle(document.body).getPropertyValue('--size');
+
+  size = parseFloat(size);
+
+  image.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+  text.style.clipPath = `circle(${--size / 2}px at ${x}px ${y}px)`;
+});
 const HoverTest = ({
   tagName: Tag = 'div',
   className = '',
